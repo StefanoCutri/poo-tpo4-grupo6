@@ -1,3 +1,8 @@
+package org.uade.controllers;
+import org.uade.enums.TipoGenero;
+import org.uade.enums.TipoProyeccion;
+import org.uade.models.Pelicula;
+
 import java.util.*;
 
 

@@ -1,3 +1,7 @@
+package org.uade.models;
+
+import org.uade.enums.TipoTarjeta;
+
 import java.util.*;
 
 /**
