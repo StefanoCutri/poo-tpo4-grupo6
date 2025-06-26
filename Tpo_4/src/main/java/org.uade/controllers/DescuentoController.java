@@ -1,5 +1,4 @@
 package org.uade.controllers;
-
 import org.uade.enums.TipoTarjeta;
 import org.uade.models.CondicionesDescuento;
 import org.uade.models.TarjetaDescuento;
@@ -7,9 +6,6 @@ import org.uade.models.TarjetaDescuento;
 import java.util.*;
 
 
-/**
- * 
- */
 public class DescuentoController {
 	
 	
@@ -24,9 +20,6 @@ public class DescuentoController {
     	
     }
 
-    /**
-     * 
-     */
     public void ABM() {
 	}
 
