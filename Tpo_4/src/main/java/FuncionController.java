@@ -1,9 +1,3 @@
-package org.uade.controllers;
-
-import org.uade.models.Entrada;
-import org.uade.models.Funcion;
-import org.uade.models.Pelicula;
-import org.uade.models.Sala;
 
 import java.util.*;
 
@@ -19,7 +13,7 @@ public class FuncionController {
 	FuncionController() {
     	funciones = new ArrayList<Funcion>();
     	funciones.add(new Funcion(new Date(), 1, "11:00", new ArrayList<Entrada>(), new Sala(0, null, 0),
-                new Pelicula(TipoGenero.Terror,"steven spielberg",120,"Tiburon", TipoProyeccion.DosD,new ArrayList<>(),null)));
+                new Pelicula(TipoGenero.Terror,"steven spielberg",120,"Tiburon",TipoProyeccion.DosD,new ArrayList<>(),null)));
 
     }
 

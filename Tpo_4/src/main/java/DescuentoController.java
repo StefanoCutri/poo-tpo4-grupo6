@@ -1,8 +1,3 @@
-package org.uade.controllers;
-
-import org.uade.models.CondicionesDescuento;
-import org.uade.models.TarjetaDescuento;
-
 import java.util.*;
 
 

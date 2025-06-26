@@ -1,7 +1,3 @@
-package org.uade.controllers;
-
-import org.uade.models.Pelicula;
-
 import java.util.*;
 
 
