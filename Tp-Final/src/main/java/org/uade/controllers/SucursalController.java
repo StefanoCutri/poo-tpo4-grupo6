@@ -1,37 +1,45 @@
 package org.uade.controllers;
 
-import org.uade.models.Sala;
 import org.uade.models.Sucursal;
-import org.uade.models.Venta;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+
+/**
+ * 
+ */
 public class SucursalController {
-    private List<Sucursal> sucursales;
-    private static SucursalController INSTANCE = null;
 
-    private SucursalController() {
-        this.sucursales = new ArrayList<>();
+    /**
+     * Default constructor
+     */
+	
+	private List<Sucursal> sucursal;
+		
+    public SucursalController() {
+    	sucursal = new ArrayList<Sucursal>();
+    	sucursal.add(new Sucursal(1, "Barracas", "Av Montes de Oca 1100", null));
 
+    	
     }
 
-    // Singleton
-    public static synchronized SucursalController getInstances(){
-        if(INSTANCE == null){
-            INSTANCE = new SucursalController();
-        }
-        return INSTANCE;
+    /**
+     * @param id 
+     * @param denom 
+     * @param dir
+     */
+    public void agregarSucursal(int id, String denom, String dir) {
+        // TODO implement here
     }
 
-
-    // metodos
-
-    public void agregarSucursal(Sucursal sucursal){
-        this.sucursales.add(sucursal);
+    /**
+     * @param idSucursal 
+     * @param salaID 
+     * @param denom 
+     * @param nroasientos
+     */
+    public void agregarSala(int idSucursal, int salaID, String denom, int nroasientos) {
+        // TODO implement here
     }
 
-    public void agregarSala(Sala sala){
-
-    }
 }

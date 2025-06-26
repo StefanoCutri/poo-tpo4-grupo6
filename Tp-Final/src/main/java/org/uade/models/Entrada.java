@@ -1,19 +1,50 @@
 package org.uade.models;
 
+/**
+ * 
+ */
 public class Entrada {
-    private float precio;
-    private int nroAsiento;
-    public Funcion funcion;
+
+    /**
+     * Default constructor
+     */
+    public Entrada(int nroAsiento, Funcion funcion, float precio) {
+    	this.funcion = funcion;
+    	this.nroAsiento = nroAsiento;
+    	this.precio = precio;
+    }
+    
+    public Entrada() {
+
+    }
 
     public float getPrecio() {
         return precio;
     }
 
-    public int getNroAsiento() {
-        return nroAsiento;
+    private float precio;
+
+    /**
+     * 
+     */
+    private int nroAsiento;
+
+    /**
+     * 
+     */
+    public Funcion funcion;
+
+
+    public int getFuncionID() {
+        // TODO implement here
+        return 0;
     }
 
-    public Funcion getFuncion() {
-        return funcion;
+    /**
+     * 
+     */
+    public void getPeliculaID() {
+        // TODO implement here
     }
+
 }

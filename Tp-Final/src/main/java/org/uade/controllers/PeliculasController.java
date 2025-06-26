@@ -1,29 +1,34 @@
 package org.uade.controllers;
 
 import org.uade.models.Pelicula;
-import org.uade.models.Sucursal;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+
+/**
+ * 
+ */
+    	
 public class PeliculasController {
-    private List<Pelicula> peliculas;
-    private static PeliculasController INSTANCE = null;
 
-    private PeliculasController() {
-        this.peliculas = new ArrayList<>();
+    /**
+     * Default constructor
+     */
+	
+	private List<Pelicula> peliculas;
+	
+    public PeliculasController() {
+    	
+    	peliculas= new ArrayList<Pelicula>();
+    	peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180 , "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"),null));
 
     }
 
-    // Singleton
-    public static synchronized PeliculasController getInstances(){
-        if(INSTANCE == null){
-            INSTANCE = new PeliculasController();
-        }
-        return INSTANCE;
+    /**
+     * 
+     */
+    public void ABM() {
+        // TODO implement here
     }
 
-    // metodos
-
-    public void AMB(){}
 }

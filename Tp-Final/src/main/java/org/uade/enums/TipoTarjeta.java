@@ -1,9 +1,12 @@
 package org.uade.enums;
 
-public enum TipoTarjeta{
+/**
+ * 
+ */
+public enum TipoTarjeta {
     LaNacion,
     Clarin365,
-    MovieClucb,
+    MovieClub,
     PAMI,
     UADE
 }

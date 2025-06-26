@@ -1,36 +1,43 @@
 package org.uade.models;
 
-import org.uade.enums.TipoTarjeta;
-
+/**
+ * 
+ */
 public class TarjetaDescuento {
 
+    /**
+     * Default constructor
+     */
+    public TarjetaDescuento(int tarjetaID, TipoTarjeta tipoTarjeta, String numeroTarjeta) {
+    	this.numeroTarjeta = numeroTarjeta;
+    	this.tarjetaID = tarjetaID;
+    	this.tipoTarjeta = tipoTarjeta;
+    }
+
+    /**
+     * 
+     */
     private int tarjetaID;
+
+    /**
+     * 
+     */
     private TipoTarjeta tipoTarjeta;
+
+    /**
+     * 
+     */
     private String numeroTarjeta;
 
-    public int getTarjetaID() {
-        return tarjetaID;
-    }
-
-    public void setTarjetaID(int tarjetaID) {
-        this.tarjetaID = tarjetaID;
-    }
-
-    public void setTipoTarjeta(TipoTarjeta tipoTarjeta) {
-        this.tipoTarjeta = tipoTarjeta;
-    }
-
-    public String getNumeroTarjeta() {
-        return numeroTarjeta;
-    }
-
-    public void setNumeroTarjeta(String numeroTarjeta) {
-        this.numeroTarjeta = numeroTarjeta;
-    }
 
 
-    // Metodos
-    public TipoTarjeta getTipoTarjeta(){
+    /**
+     * @return
+     */
+    public TipoTarjeta getTipoTarjeta() {
+        // TODO implement here
         return null;
     }
+
+
 }

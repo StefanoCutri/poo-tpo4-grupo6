@@ -1,29 +1,33 @@
 package org.uade.controllers;
 
 import org.uade.models.CondicionesDescuento;
-import org.uade.models.Pelicula;
+import org.uade.models.TarjetaDescuento;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+
+/**
+ * 
+ */
 public class DescuentoController {
-    private List<CondicionesDescuento> descuentos;
-    private static DescuentoController INSTANCE = null;
-
-    private DescuentoController() {
-        this.descuentos = new ArrayList<>();
-
+	
+	
+	private static DescuentoController instancia;
+	
+	private List<CondicionesDescuento> Descuento;
+	
+    public DescuentoController() {
+    	Descuento = new ArrayList<CondicionesDescuento>();
+    	CondicionesDescuento CondicionesDescuento = new CondicionesDescuento(new Date(), new Date(), 5, 50, TipoTarjeta.PAMI, new ArrayList<TarjetaDescuento>());
+    	Descuento.add(CondicionesDescuento);
+    	
     }
 
-    // Singleton
-    public static synchronized DescuentoController getInstances(){
-        if(INSTANCE == null){
-            INSTANCE = new DescuentoController();
-        }
-        return INSTANCE;
-    }
+    /**
+     * 
+     */
+    public void ABM() {
+	}
 
-    // metodos
 
-    public void AMB(){}
 }

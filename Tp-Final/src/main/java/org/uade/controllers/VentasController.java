@@ -1,34 +1,16 @@
 package org.uade.controllers;
 
-import org.uade.dtos.FuncionDto;
-import org.uade.dtos.VentaDto;
-import org.uade.enums.TipoGenero;
-import org.uade.enums.TipoTarjeta;
 import org.uade.models.Funcion;
 import org.uade.models.Venta;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
+
+/**
+ * 
+ */
 public class VentasController {
-    private List<Venta> ventas;
-    private static VentasController INSTANCE = null;
 
-    private VentasController() {
-        this.ventas = new ArrayList<>();
-
-    }
-
-    // Singleton
-    public static synchronized VentasController getInstances(){
-        if(INSTANCE == null){
-            INSTANCE = new VentasController();
-        }
-        return INSTANCE;
-    }
-
-
-    // metodos
     public List<Venta> getVentas() {
         return ventas;
     }
@@ -37,34 +19,101 @@ public class VentasController {
         this.ventas = ventas;
     }
 
-    public float recaudacionPorFuncion(int idFuncion){
-        return 0;
-    }
-    public float recaudacionPorPelicula(int idPelicula){
-        return 0;
-    }
+    /**
+     * Default constructor
+     */
+    private List<Venta> ventas;
 
-    public float recaudacionPorTarjetaDescuento(TipoTarjeta tipoTarjeta){
-        return 0;
-    }
-
-    public void comboMasVendido(){
-
+    private FuncionController funcionController =  new FuncionController();
+	
+    public VentasController(){
+        ventas = new ArrayList<Venta>();
+        Venta venta = new Venta(1,new Date(), null, null);
+        ventas.add(venta);
     }
 
-    private Venta buscarVentaPorFuncion(Funcion funcion){
+
+    /**
+     * @param funcionID 
+     * @return
+     */
+    public float recaudacionPorFuncion(int funcionID) {
+        // TODO implement here
+        return 0.0f;
+    }
+
+    /**
+     * Caso de secuencia a desarrollar
+     * @param peliculaID
+     * @return
+     */
+    public float recaudacionPorPelicula(int peliculaID) {
+        List<Funcion> funciones = funcionController.buscarPeliculaPorFuncion(peliculaID);
+        if(funciones.isEmpty()){
+            return 0;
+        }
+        float totalrecuadado = 0.0f;
+        for (Funcion funcion:funciones) {
+            Venta venta = buscarVentaPorFuncion(funcion);
+            if(Objects.isNull(venta)){
+                totalrecuadado=+venta.calcularMontoDeLaVentaPorFuncionCombos();
+            }
+        }
+    	return totalrecuadado;
+    }
+
+    /**
+     * @param tipoTarjeta 
+     * @return
+     */
+    public float recaudacionPorTarjetaDescuento(TipoTarjeta tipoTarjeta) {
+        // TODO implement here
+        return 0.0f;
+    }
+
+    /**
+     * 
+     */
+    public void comboMasVendido() {
+        // TODO implement here
+    }
+
+    private  Venta buscarVentaPorFuncion(Funcion funcion){
+        for (Venta venta:getVentas()) {
+            if(Objects.equals(funcion,venta.getFuncion())){
+                return venta;
+            }
+        }
         return null;
     }
 
-    public List<VentaDto> funcionesVendidasPorGenero(TipoGenero genero){
-        return null;
+    /**
+     * View a desarrollar
+     *
+     * @param genero
+     * @return
+     */
+    public List<VentaDto> funcionesVendidasPorGenero(TipoGenero genero) {
+        List<VentaDto> ventaDtos = new ArrayList<>();
+        List<Funcion> funciones = funcionController.buscarPeliculaPorGenerosFuncion(genero);
+        if(funciones.isEmpty()){
+            return ventaDtos;
+        }
+        for (Funcion funcion:funciones) {
+            Venta venta = buscarVentaPorFuncion(funcion);
+            if(Objects.isNull(venta)){
+                ventaDtos.add(modelVentaToDto(venta));
+            }
+        }
+        return ventaDtos;
     }
 
     public VentaDto modelVentaToDto(Venta venta){
-        return null;
+        return new VentaDto(modelFuncionToDto(venta.getFuncion()));
     }
 
-    public FuncionDto modelFuncionToDto(Funcion funcion){
-        return null;
+    public FuncionDTO modelFuncionToDto(Funcion funcion){
+        return new FuncionDTO(funcion);
     }
+
 }
