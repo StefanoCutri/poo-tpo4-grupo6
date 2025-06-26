@@ -1,4 +1,10 @@
 package org.uade.controllers;
+import org.uade.dtos.FuncionDTO;
+import org.uade.dtos.VentaDto;
+import org.uade.enums.TipoGenero;
+import org.uade.enums.TipoTarjeta;
+import org.uade.models.Funcion;
+import org.uade.models.Venta;
 
 import java.util.*;
 

@@ -1,5 +1,8 @@
 package org.uade.models;
 
+import org.uade.enums.TipoGenero;
+import org.uade.enums.TipoProyeccion;
+
 import java.util.*;
 
 /**
