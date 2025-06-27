@@ -25,8 +25,7 @@ public class DescuentoController {
 		}
 		return instancia;
 	}
-
-	// Alta: agregar una condición de descuento
+	
 	public boolean agregarDescuento(CondicionesDescuento nuevo) {
 		// Validación básica: no agregar si ya existe exactamente la misma condición (puedes adaptar según criterio)
 		for (CondicionesDescuento c : descuentos) {

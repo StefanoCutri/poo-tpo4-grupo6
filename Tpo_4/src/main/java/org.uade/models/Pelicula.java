@@ -7,12 +7,12 @@ import java.util.*;
 
 public class Pelicula {
 
-    public Pelicula(TipoGenero generoID, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
+    public Pelicula(TipoGenero genero, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
     
     this.actores = actores;
     this.director = director;
     this.duracionEnMinutos = duracionEnMinutos;
-    this.generoID = generoID;
+    this.genero = genero;
     this.nombrePelicula = nombrePelicula;
     this.tipo = tipo;
     this.condicionesDescuento = descuento;
@@ -34,8 +34,7 @@ public class Pelicula {
     private CondicionesDescuento condicionesDescuento;
 
     public int getPeliculaID() {
-        // TODO implement here
-        return 0;
+        return this.getPeliculaID();
     }
 
     public TipoGenero getGenero() {
