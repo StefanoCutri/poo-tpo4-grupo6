@@ -2,14 +2,8 @@ package org.uade.models;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Entrada {
 
-    /**
-     * Default constructor
-     */
     public Entrada(int nroAsiento, Funcion funcion, float precio) {
     	this.funcion = funcion;
     	this.nroAsiento = nroAsiento;
@@ -26,25 +20,15 @@ public class Entrada {
 
     private float precio;
 
-    /**
-     * 
-     */
     private int nroAsiento;
 
-    /**
-     * 
-     */
     public Funcion funcion;
 
 
     public int getFuncionID() {
-        // TODO implement here
-        return 0;
+        return funcion.getFuncionID();
     }
 
-    /**
-     * 
-     */
     public void getPeliculaID() {
         // TODO implement here
     }
