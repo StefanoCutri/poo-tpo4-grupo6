@@ -17,6 +17,7 @@ public class TarjetaDescuento {
     private String numeroTarjeta;
 
     public TipoTarjeta getTipoTarjeta() {
-        return null;
+        return this.tipoTarjeta;
+
     }
 }

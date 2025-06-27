@@ -210,7 +210,7 @@ public class FuncionController {
                 funcionesDeLaPelicula.add(funcion);
             }
         }
-        return funciones;
+        return funcionesDeLaPelicula;
     }
 
     public List<Funcion> buscarPeliculaPorGenerosFuncion(TipoGenero genero) {
@@ -220,6 +220,27 @@ public class FuncionController {
                 funcionesDeLaPelicula.add(funcion);
             }
         }
-        return funciones;
+        return funcionesDeLaPelicula;
+    }
+
+    // buscar funcion por ID
+    public Funcion buscarFuncionPorID(int funcionID) {
+        for (Funcion f : funciones) {
+            if (f.getFuncionID() == funcionID) {
+                return f;
+            }
+        }
+        return null;
+    }
+
+    // Buscar siguiente ID
+    public int obtenerProximoID() {
+        int maxID = 0;
+        for (Funcion f : funciones) {
+            if (f.getFuncionID() > maxID) {
+                maxID = f.getFuncionID();
+            }
+        }
+        return maxID + 1;
     }
 }

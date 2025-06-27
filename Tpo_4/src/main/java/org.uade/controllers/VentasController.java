@@ -3,6 +3,7 @@ import org.uade.dtos.FuncionDTO;
 import org.uade.dtos.VentaDto;
 import org.uade.enums.TipoGenero;
 import org.uade.enums.TipoTarjeta;
+import org.uade.models.Combo;
 import org.uade.models.Funcion;
 import org.uade.models.Venta;
 
@@ -27,22 +28,40 @@ public class VentasController {
      */
     private List<Venta> ventas;
 
-    private FuncionController funcionController =  FuncionController.getInstance();
-	
+    private FuncionController funcionController = FuncionController.getInstance();
+
     public VentasController(){
         ventas = new ArrayList<Venta>();
         Venta venta = new Venta(1,new Date(), null, null);
         ventas.add(venta);
     }
 
+    private static VentasController INSTANCE = null;
+
+    // Singleton
+    public static synchronized VentasController getInstances(){
+        if(INSTANCE == null){
+            INSTANCE = new VentasController();
+        }
+        return INSTANCE;
+    }
 
     /**
      * @param funcionID 
      * @return
      */
     public float recaudacionPorFuncion(int funcionID) {
-        // TODO implement here
-        return 0.0f;
+        Funcion funciones = funcionController.buscarFuncionPorID(funcionID);
+        if(funciones == null){
+            return 0;
+        }
+        float totalrecuadado = 0.0f;
+        for (Venta venta : ventas) {
+            if (venta.getFuncion() != null && venta.getFuncion().getFuncionID() == funcionID) {
+                totalrecuadado += venta.calcularMontoDeLaVentaPorFuncionCombos();
+            }
+        }
+        return totalrecuadado;
     }
 
     /**
@@ -58,8 +77,8 @@ public class VentasController {
         float totalrecuadado = 0.0f;
         for (Funcion funcion:funciones) {
             Venta venta = buscarVentaPorFuncion(funcion);
-            if(Objects.isNull(venta)){
-                totalrecuadado=+venta.calcularMontoDeLaVentaPorFuncionCombos();
+            if(!Objects.isNull(venta)){
+                totalrecuadado+=venta.calcularMontoDeLaVentaPorFuncionCombos();
             }
         }
     	return totalrecuadado;
@@ -70,15 +89,56 @@ public class VentasController {
      * @return
      */
     public float recaudacionPorTarjetaDescuento(TipoTarjeta tipoTarjeta) {
-        // TODO implement here
-        return 0.0f;
+        float total = 0.0f;
+        for (Venta venta : ventas) {
+            if (venta.getTarjetaDescuento() != null && venta.getTarjetaDescuento().getTipoTarjeta().equals(tipoTarjeta)) {
+                total += venta.calcularMontoDeLaVentaPorFuncionCombos();
+            }
+        }
+        return total;
     }
 
     /**
      * 
      */
     public void comboMasVendido() {
-        // TODO implement here
+        if (ventas.isEmpty()) {
+            System.out.println("No hay ventas registradas.");
+            return;
+        }
+
+        int comboMasVendidoID = -1;
+        int maxCantidad = 0;
+
+        for (Venta venta : ventas) {
+            if (venta.getListaComboID() == null) continue;
+
+            for (Combo combo : venta.getListaComboID()) {
+                int comboID = combo.getComboID();
+                int cantidad = 0;
+
+                for (Venta v : ventas) {
+                    if (v.getListaComboID() != null) {
+                        for (Combo c : v.getListaComboID()) {
+                            if (c.getComboID() == comboID) {
+                                cantidad++;
+                            }
+                        }
+                    }
+                }
+
+                if (cantidad > maxCantidad) {
+                    maxCantidad = cantidad;
+                    comboMasVendidoID = comboID;
+                }
+            }
+        }
+
+        if (comboMasVendidoID != -1) {
+            System.out.println("Combo más vendido: ID " + comboMasVendidoID + " (" + maxCantidad + " ventas)");
+        } else {
+            System.out.println("No se vendieron combos.");
+        }
     }
 
     private  Venta buscarVentaPorFuncion(Funcion funcion){
@@ -104,7 +164,7 @@ public class VentasController {
         }
         for (Funcion funcion:funciones) {
             Venta venta = buscarVentaPorFuncion(funcion);
-            if(Objects.isNull(venta)){
+            if(!Objects.isNull(venta)){
                 ventaDtos.add(modelVentaToDto(venta));
             }
         }
