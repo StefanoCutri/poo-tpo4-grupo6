@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class VistaRegistrarFuncion extends JFrame {
+public class VistaRegistrarFuncion extends JPanel {
 
     private JComboBox<TipoGenero> generoComboBox;
     private JComboBox<Pelicula> peliculaComboBox;
