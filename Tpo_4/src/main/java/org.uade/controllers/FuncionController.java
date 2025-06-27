@@ -44,7 +44,6 @@ public class FuncionController {
             }
         }
 
-        // Validar que no haya otra función en la misma sala y con el mismo horario
         for (Funcion f : funciones) {
             if (f.getSalaID() == nuevaFuncion.getSalaID()) {
                 if (f.getFecha().equals(nuevaFuncion.getFecha())) {
@@ -161,14 +160,12 @@ public class FuncionController {
     /**
      * @return
      */
-    public int diaDeLaSemanaConMenorVentas() {
-        // Arreglo para acumular ventas por día: índices 1 a 7
-        int[] ventasPorDia = new int[8];
+    public int diaDeLaSemanaConMenorVentas() {int[] ventasPorDia = new int[8];
 
         for (Funcion f : funciones) {
             Calendar cal = Calendar.getInstance();
             cal.setTime(f.getFecha());
-            int diaSemana = cal.get(Calendar.DAY_OF_WEEK); // 1=domingo ... 7=sábado
+            int diaSemana = cal.get(Calendar.DAY_OF_WEEK);
 
             int entradasVendidas = f.getEntradas().size();
             ventasPorDia[diaSemana] += entradasVendidas;
@@ -177,7 +174,6 @@ public class FuncionController {
         int minDia = 1;
         int minVentas = ventasPorDia[1];
 
-        // Buscar el día con menos ventas (del 1 al 7)
         for (int dia = 2; dia <= 7; dia++) {
             if (ventasPorDia[dia] < minVentas) {
                 minVentas = ventasPorDia[dia];
@@ -210,7 +206,6 @@ public class FuncionController {
         return funcionesDeLaPelicula;
     }
 
-    // buscar funcion por ID
     public Funcion buscarFuncionPorID(int funcionID) {
         for (Funcion f : funciones) {
             if (f.getFuncionID() == funcionID) {
@@ -220,7 +215,6 @@ public class FuncionController {
         return null;
     }
 
-    // Buscar siguiente ID
     public int obtenerProximoID() {
         int maxID = 0;
         for (Funcion f : funciones) {

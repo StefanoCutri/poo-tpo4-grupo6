@@ -10,9 +10,6 @@ import org.uade.models.Venta;
 import java.util.*;
 
 
-/**
- * 
- */
 public class VentasController {
 
     public List<Venta> getVentas() {
@@ -23,9 +20,6 @@ public class VentasController {
         this.ventas = ventas;
     }
 
-    /**
-     * Default constructor
-     */
     private List<Venta> ventas;
 
     private FuncionController funcionController = FuncionController.getInstance();
@@ -38,7 +32,6 @@ public class VentasController {
 
     private static VentasController INSTANCE = null;
 
-    // Singleton
     public static synchronized VentasController getInstances(){
         if(INSTANCE == null){
             INSTANCE = new VentasController();
@@ -98,9 +91,6 @@ public class VentasController {
         return total;
     }
 
-    /**
-     * 
-     */
     public void comboMasVendido() {
         if (ventas.isEmpty()) {
             System.out.println("No hay ventas registradas.");

@@ -91,7 +91,7 @@ public class VistaRegistrarFuncion extends JPanel {
         generoComboBox.addActionListener(e -> actualizarPeliculas());
         registrarButton.addActionListener(e -> registrarFuncion());
 
-        actualizarPeliculas(); // inicializar películas al cargar
+        actualizarPeliculas();
     }
 
     private void actualizarPeliculas() {
@@ -117,14 +117,11 @@ public class VistaRegistrarFuncion extends JPanel {
 
         try {
             int salaID = Integer.parseInt(salaTexto);
-            // Simulamos una sala cualquiera (podés reemplazar esto por una sala real si tenés lógica para eso)
-            Sala sala = new Sala(salaID, "Sala A", 50); // salaID, sucursalID, asientos
+            Sala sala = new Sala(salaID, "Sala A", 50);
 
-            // Extraer horario como texto (por ejemplo "20:00")
             SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
             String horario = sdfHora.format(fechaHora);
 
-            // Generar ID autoincremental
             int nuevoID = funcionController.obtenerProximoID();
 
             Funcion nuevaFuncion = new Funcion(fechaHora, nuevoID, horario, new ArrayList<>(), sala, pelicula);

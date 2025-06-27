@@ -26,7 +26,6 @@ public class SucursalController {
     }
 
     public void agregarSucursal(int id, String denom, String dir) {
-        // Verificar si ya existe una sucursal con ese ID
         for (Sucursal s : sucursales) {
             if (s.getSucursalID() == id) {
                 System.out.println("Error: Ya existe una sucursal con ese ID.");
@@ -34,7 +33,6 @@ public class SucursalController {
             }
         }
 
-        // Si no existe, la agregamos
         Sucursal nueva = new Sucursal(id, denom, dir, new ArrayList<Sala>());
         sucursales.add(nueva);
         System.out.println("Sucursal agregada correctamente.");
@@ -42,15 +40,12 @@ public class SucursalController {
 
 
     public void agregarSala(int idSucursal, int salaID, String denom, int nroasientos) {
-        // Buscar la sucursal por ID
         for (Sucursal s : sucursales) {
             if (s.getSucursalID() == idSucursal) {
-                // Si la sucursal tiene lista de salas nula, la inicializamos
                 if (s.getSalas() == null) {
                     s.setSalas(new ArrayList<>());
                 }
 
-                // Verificamos si ya existe una sala con el mismo ID en esa sucursal
                 for (Sala sala : s.getSalas()) {
                     if (sala.getSalaID() == salaID) {
                         System.out.println("Error: Ya existe una sala con ese ID en la sucursal.");
@@ -58,7 +53,6 @@ public class SucursalController {
                     }
                 }
 
-                // Creamos y agregamos la nueva sala
                 Sala nuevaSala = new Sala(salaID, denom, nroasientos);
                 s.getSalas().add(nuevaSala);
                 System.out.println("Sala agregada correctamente.");
@@ -66,7 +60,6 @@ public class SucursalController {
             }
         }
 
-        // Si no se encontró la sucursal
         System.out.println("Error: No se encontró la sucursal con ese ID.");
     }
 

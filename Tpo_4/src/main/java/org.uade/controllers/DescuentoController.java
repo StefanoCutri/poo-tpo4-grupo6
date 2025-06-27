@@ -27,7 +27,6 @@ public class DescuentoController {
 	}
 	
 	public boolean agregarDescuento(CondicionesDescuento nuevo) {
-		// Validación básica: no agregar si ya existe exactamente la misma condición (puedes adaptar según criterio)
 		for (CondicionesDescuento c : descuentos) {
 			if (c.equals(nuevo)) { // si tienes equals bien implementado
 				System.out.println("Error: Ya existe esta condición de descuento.");
@@ -38,7 +37,6 @@ public class DescuentoController {
 		return true;
 	}
 
-	// Baja: eliminar condición de descuento (por ejemplo, por índice o algún ID si tienes)
 	public boolean eliminarDescuento(CondicionesDescuento aEliminar) {
 		boolean eliminado = descuentos.remove(aEliminar);
 		if (!eliminado) {
@@ -47,7 +45,6 @@ public class DescuentoController {
 		return eliminado;
 	}
 
-	// Modificación: modificar una condición existente
 	public boolean modificarDescuento(CondicionesDescuento viejo, CondicionesDescuento nuevo) {
 		int idx = descuentos.indexOf(viejo);
 		if (idx == -1) {
@@ -58,7 +55,6 @@ public class DescuentoController {
 		return true;
 	}
 
-	// Por ejemplo, obtener lista de descuentos para mostrar en UI
 	public List<CondicionesDescuento> getDescuentos() {
 		return new ArrayList<>(descuentos); // devuelvo copia para no exponer la lista interna
 	}

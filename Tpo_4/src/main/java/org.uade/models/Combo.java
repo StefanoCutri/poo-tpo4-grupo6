@@ -2,9 +2,6 @@ package org.uade.models;
 
 public class Combo {
 
-    /**
-     * Default constructor
-     */
     public Combo(int comboID, String descripcion, float precio, CondicionesDescuento Contiene) {
         this.comboID = comboID;
         this.Contiene = Contiene;

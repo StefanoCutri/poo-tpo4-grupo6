@@ -5,10 +5,6 @@ import org.uade.models.Pelicula;
 
 import java.util.*;
 
-
-/**
- * 
- */
     	
 public class PeliculasController {
 
