@@ -21,101 +21,53 @@ public class Funcion {
     	
     }
 
+    private List<Entrada> entradas;
+    private Sala sala;
+    private Pelicula pelicula;
+    private String horario;
+    private Date fecha;
+    private int funcionID;
+
+
     public Pelicula getPelicula() {
         return pelicula;
     }
-
-    /*
-    *
-    *
-    */
-    private Pelicula pelicula;
-
-    /**
-     * 
-     */
-    private int funcionID;
-
-    /**
-     * 
-     */
-    private String horario;
-
-    /**
-     * 
-     */
-    private Date fecha;
 
     public List<Entrada> getEntradas() {
         return entradas;
     }
 
-    /**
-     * 
-     */
-    private List<Entrada> entradas;
-
-    private Sala sala;
-
-
-
-    /**
-     * @return
-     */
     public int getSalaID() {
-        // TODO implement here
-        return 0;
+        return this.sala.getSalaID();
     }
 
-    /**
-     * @return
-     */
     public int getSucursalID() {
-        // TODO implement here
-        return 0;
+        return this.sala.getSucursalID();
     }
 
-    /**
-     * @return
-     */
     public int getPeliculaID() {
-        // TODO implement here
-        if(Objects.nonNull(getPelicula().getPeliculaID())){
-
-        }
-        return 0;
+            return pelicula.getPeliculaID();
     }
 
-    /**
-     * 
-     */
     public int getCantidadAsientosDisponibles() {
-    	
-		return 0;
-        // TODO implement here
+		return this.sala.getAsientos();
     }
 
-    /**
-     * @return
-     */
+
     public int getFuncionID() {
 
         return this.funcionID;
     }
 
-    /**
-     * 	
-     */
     public Date getFecha() {
-		return fecha;
-        // TODO implement here
+		return this.fecha;
     }
 
     public float calcularMontoPorEntradaDeLaPelicula(){
         float total = 0.0f;
         for (Entrada entrada:getEntradas()) {
             total = total+ (entrada.getPrecio() -
-                    (entrada.getPrecio()*pelicula.getCondicionesDescuento().getDescuento()));
+                    (entrada.getPrecio()*this.pelicula.getCondicionesDescuento().getDescuento()));
         }
         return total;
     }

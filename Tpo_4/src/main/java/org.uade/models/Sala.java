@@ -37,7 +37,6 @@ public class Sala {
      * @return
      */
     public int getSucursalID() {
-        // TODO implement here
         return 0;
     }
 
@@ -45,8 +44,7 @@ public class Sala {
      * @return
      */
     public int getSalaID() {
-        // TODO implement here
-        return 0;
+        return this.salaID;
     }
 
     /**
