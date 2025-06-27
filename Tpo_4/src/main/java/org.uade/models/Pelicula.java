@@ -7,12 +7,12 @@ import java.util.*;
 
 public class Pelicula {
 
-    public Pelicula(TipoGenero generoID, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
+    public Pelicula(TipoGenero genero, String director, int duracionEnMinutos, String nombrePelicula, TipoProyeccion tipo, List<String> actores, CondicionesDescuento descuento) {
     
     this.actores = actores;
     this.director = director;
     this.duracionEnMinutos = duracionEnMinutos;
-    this.generoID = generoID;
+    this.genero = genero;
     this.nombrePelicula = nombrePelicula;
     this.tipo = tipo;
     this.condicionesDescuento = descuento;
