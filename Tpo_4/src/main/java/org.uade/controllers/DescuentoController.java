@@ -7,21 +7,63 @@ import java.util.*;
 
 
 public class DescuentoController {
-	
-	
-	private static DescuentoController instancia;
-	
-	private List<CondicionesDescuento> Descuento;
-	
-    public DescuentoController() {
-    	Descuento = new ArrayList<CondicionesDescuento>();
-    	CondicionesDescuento CondicionesDescuento = new CondicionesDescuento(new Date(), new Date(), 5, 50, TipoTarjeta.PAMI, new ArrayList<TarjetaDescuento>());
-    	Descuento.add(CondicionesDescuento);
-    	
-    }
 
-    public void ABM() {
+	private static DescuentoController instancia;
+
+	private List<CondicionesDescuento> descuentos;
+
+	// Constructor privado para Singleton
+	private DescuentoController() {
+		descuentos = new ArrayList<>();
+		CondicionesDescuento cd = new CondicionesDescuento(
+				new Date(), new Date(), 5, 50, TipoTarjeta.PAMI, new ArrayList<TarjetaDescuento>());
+		descuentos.add(cd);
 	}
 
+	// Método para obtener la instancia única (Singleton)
+	public static DescuentoController getInstance() {
+		if (instancia == null) {
+			instancia = new DescuentoController();
+		}
+		return instancia;
+	}
+
+	// Alta: agregar una condición de descuento
+	public boolean agregarDescuento(CondicionesDescuento nuevo) {
+		// Validación básica: no agregar si ya existe exactamente la misma condición (puedes adaptar según criterio)
+		for (CondicionesDescuento c : descuentos) {
+			if (c.equals(nuevo)) { // si tienes equals bien implementado
+				System.out.println("Error: Ya existe esta condición de descuento.");
+				return false;
+			}
+		}
+		descuentos.add(nuevo);
+		return true;
+	}
+
+	// Baja: eliminar condición de descuento (por ejemplo, por índice o algún ID si tienes)
+	public boolean eliminarDescuento(CondicionesDescuento aEliminar) {
+		boolean eliminado = descuentos.remove(aEliminar);
+		if (!eliminado) {
+			System.out.println("Error: No se encontró la condición para eliminar.");
+		}
+		return eliminado;
+	}
+
+	// Modificación: modificar una condición existente
+	public boolean modificarDescuento(CondicionesDescuento viejo, CondicionesDescuento nuevo) {
+		int idx = descuentos.indexOf(viejo);
+		if (idx == -1) {
+			System.out.println("Error: No se encontró la condición para modificar.");
+			return false;
+		}
+		descuentos.set(idx, nuevo);
+		return true;
+	}
+
+	// Por ejemplo, obtener lista de descuentos para mostrar en UI
+	public List<CondicionesDescuento> getDescuentos() {
+		return new ArrayList<>(descuentos); // devuelvo copia para no exponer la lista interna
+	}
 
 }

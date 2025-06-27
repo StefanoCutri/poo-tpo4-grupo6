@@ -27,7 +27,7 @@ public class VentasController {
      */
     private List<Venta> ventas;
 
-    private FuncionController funcionController =  new FuncionController();
+    private FuncionController funcionController =  FuncionController.getInstance();
 	
     public VentasController(){
         ventas = new ArrayList<Venta>();
