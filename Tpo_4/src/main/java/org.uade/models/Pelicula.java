@@ -12,7 +12,7 @@ public class Pelicula {
     this.actores = actores;
     this.director = director;
     this.duracionEnMinutos = duracionEnMinutos;
-    this.generoID = generoID;
+    this.genero = generoID;
     this.nombrePelicula = nombrePelicula;
     this.tipo = tipo;
     this.condicionesDescuento = descuento;
@@ -34,8 +34,7 @@ public class Pelicula {
     private CondicionesDescuento condicionesDescuento;
 
     public int getPeliculaID() {
-        // TODO implement here
-        return 0;
+        return this.getPeliculaID();
     }
 
     public TipoGenero getGenero() {
