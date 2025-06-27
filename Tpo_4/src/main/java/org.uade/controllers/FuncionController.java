@@ -1,5 +1,6 @@
 package org.uade.controllers;
 
+import org.uade.dtos.FuncionDTO;
 import org.uade.enums.TipoGenero;
 import org.uade.enums.TipoProyeccion;
 import org.uade.models.Entrada;
@@ -81,7 +82,7 @@ public class FuncionController {
                 funcionesDeLaPelicula.add(funcion);
             }
         }
-        return funciones;
+        return funcionesDeLaPelicula;
     }
 
     public List<Funcion> buscarPeliculaPorGenerosFuncion(TipoGenero genero) {
@@ -91,6 +92,16 @@ public class FuncionController {
                 funcionesDeLaPelicula.add(funcion);
             }
         }
-        return funciones;
+        return funcionesDeLaPelicula;
+    }
+
+    // buscar funcion por ID
+    public Funcion buscarFuncionPorID(int funcionID) {
+        for (Funcion f : funciones) {
+            if (f.getFuncionID() == funcionID) {
+                return f;
+            }
+        }
+        return null;
     }
 }

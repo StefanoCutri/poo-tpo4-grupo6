@@ -38,7 +38,7 @@ public class TarjetaDescuento {
      */
     public TipoTarjeta getTipoTarjeta() {
         // TODO implement here
-        return null;
+        return this.tipoTarjeta;
     }
 
 
