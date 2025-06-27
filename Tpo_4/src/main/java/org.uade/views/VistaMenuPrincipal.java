@@ -17,11 +17,11 @@ public class VistaMenuPrincipal extends JFrame {
 
             JTabbedPane tabbedPane = new JTabbedPane();
 
-            JPanel panelMotoScooter = new AltaMotoScooter(controller);
-            JPanel panelCliente = new AltaCliente(controller);
+            //JPanel panelMotoScooter = new AltaMotoScooter(controller);
+            //JPanel panelCliente = new AltaCliente(controller);
 
-            tabbedPane.addTab("Registrar moto scooter", panelMotoScooter);
-            tabbedPane.addTab("Registrar cliente", panelCliente);
+            //tabbedPane.addTab("Registrar moto scooter", panelMotoScooter);
+            //tabbedPane.addTab("Registrar cliente", panelCliente);
 
 
             add(tabbedPane);

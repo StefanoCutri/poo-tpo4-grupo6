@@ -16,20 +16,10 @@ public class Pelicula {
     this.nombrePelicula = nombrePelicula;
     this.tipo = tipo;
     this.condicionesDescuento = descuento;
-    
-    
-    
+
     }
 
-    public TipoGenero getGeneroID() {
-        return generoID;
-    }
-
-    public void setGeneroID(TipoGenero generoID) {
-        this.generoID = generoID;
-    }
-
-    private TipoGenero generoID;
+    private TipoGenero genero;
 
     private String nombrePelicula;
 
@@ -41,14 +31,23 @@ public class Pelicula {
 
     private TipoProyeccion tipo;
 
-    public CondicionesDescuento getCondicionesDescuento() {
-        return condicionesDescuento;
-    }
-
     private CondicionesDescuento condicionesDescuento;
 
     public int getPeliculaID() {
         // TODO implement here
         return 0;
     }
+
+    public TipoGenero getGenero() {
+        return genero;
+    }
+
+    public void setGeneroID(TipoGenero generoID) {
+        this.genero = genero;
+    }
+
+    public CondicionesDescuento getCondicionesDescuento() {
+        return condicionesDescuento;
+    }
+
 }
