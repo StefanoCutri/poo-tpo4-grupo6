@@ -35,19 +35,6 @@ public class FuncionController {
         return instancia;
     }
 
-    /**
-     * Default constructor
-     */
-
-
-
-    /**
-     * 
-
-    public void ABM() {
-        // TODO implement here
-    }
-     */
 
     public boolean agregarFuncion(Funcion nuevaFuncion) {
         // Validar que no exista función con mismo ID
@@ -216,7 +203,7 @@ public class FuncionController {
     public List<Funcion> buscarPeliculaPorGenerosFuncion(TipoGenero genero) {
         List<Funcion> funcionesDeLaPelicula = new ArrayList<>();
         for (Funcion funcion : funciones) {
-            if (funcion.getPelicula().getGeneroID() == genero){
+            if (funcion.getPelicula().getGenero() == genero){
                 funcionesDeLaPelicula.add(funcion);
             }
         }

@@ -22,4 +22,12 @@ public class Sucursal {
     public int getSucursalID() {
         return this.sucursalID;
     }
+
+    public List<Sala> getSalas() {
+        return salas;
+    }
+
+    public void setSalas(List<Sala> salas) {
+        this.salas = salas;
+    }
 }

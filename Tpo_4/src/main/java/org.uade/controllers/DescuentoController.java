@@ -12,7 +12,6 @@ public class DescuentoController {
 
 	private List<CondicionesDescuento> descuentos;
 
-	// Constructor privado para Singleton
 	private DescuentoController() {
 		descuentos = new ArrayList<>();
 		CondicionesDescuento cd = new CondicionesDescuento(
@@ -20,7 +19,6 @@ public class DescuentoController {
 		descuentos.add(cd);
 	}
 
-	// Método para obtener la instancia única (Singleton)
 	public static DescuentoController getInstance() {
 		if (instancia == null) {
 			instancia = new DescuentoController();

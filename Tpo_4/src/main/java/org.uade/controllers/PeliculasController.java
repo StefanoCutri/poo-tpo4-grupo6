@@ -12,24 +12,44 @@ import java.util.*;
     	
 public class PeliculasController {
 
-    /**
-     * Default constructor
-     */
-	
-	private List<Pelicula> peliculas;
-	
-    public PeliculasController() {
-    	
-    	peliculas= new ArrayList<Pelicula>();
-    	peliculas.add(new Pelicula(TipoGenero.Suspenso, "Pelicula1", 180 , "Director X", TipoProyeccion.DosD, Arrays.asList("Actriz Principal", "Actor Secundario"),null));
+    private static PeliculasController instancia = null;
 
+    private List<Pelicula> peliculas;
+
+    private PeliculasController() {
+        peliculas = new ArrayList<>();
     }
 
-    /**
-     * 
-     */
-    public void ABM() {
-        // TODO implement here
+    public static PeliculasController getInstancia() {
+        if (instancia == null) {
+            instancia = new PeliculasController();
+        }
+        return instancia;
+    }
+
+    public static PeliculasController getInstance() {
+        if (instancia == null) {
+            instancia = new PeliculasController();
+        }
+        return instancia;
+    }
+
+    public void registrarPelicula(Pelicula pelicula) {
+        peliculas.add(pelicula);
+    }
+
+    public List<Pelicula> buscarPeliculasPorGenero(TipoGenero genero) {
+        List<Pelicula> resultado = new ArrayList<>();
+        for (Pelicula pelicula : peliculas) {
+            if (pelicula.getGenero().equals(genero)) {
+                resultado.add(pelicula);
+            }
+        }
+        return resultado;
+    }
+
+    public List<Pelicula> getTodasLasPeliculas() {
+        return peliculas;
     }
 
 }
