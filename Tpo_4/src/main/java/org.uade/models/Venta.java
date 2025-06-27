@@ -3,34 +3,18 @@ import org.uade.enums.TipoTarjeta;
 
 import java.util.*;
 
-/**
- * 
- */
 public class Venta {
 
-    /**
-     * Default constructor
-     */
     public Venta(int ventaID, Date fchVenta, List<Combo> combos, Funcion funcion) {
     	this.combos = combos;
     	this.funcion = funcion;
     	this.fchVenta = fchVenta;
     }
 
-
-	/**
-     * 
-     */
     private int ventaID;
 
-    /**
-     * 
-     */
     private Date fchVenta;
 
-    /**
-     * 
-     */
     private List<Combo> combos;
 
     public Funcion getFuncion() {
@@ -47,46 +31,28 @@ public class Venta {
         return tarjetaDescuento;
     }
 
-    /**
-     *
-     */
     private TarjetaDescuento tarjetaDescuento;
 
-    /**
-     * @return
-     */
     public int getFuncionID() {
         // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public float getTotal() {
         // TODO implement here
         return 0.0f;
     }
 
-    /**
-     * 
-     */
     public int getPeliculaID() {
         // TODO implement here
         return 0;
     }
 
-    /**
-     * @return
-     */
     public TipoTarjeta getTipoTarjeta() {
         // TODO implement here
         return null;
     }
 
-    /**
-     * 
-     */
     public List<Combo> getListaComboID() {
 		return combos;
 		
@@ -106,6 +72,4 @@ public class Venta {
     public float calcularMontoDeLaVentaPorFuncionCombos(){
         return funcion.calcularMontoPorEntradaDeLaPelicula()+calcularMontoPorComboDeVenta();
     }
-
-
 }

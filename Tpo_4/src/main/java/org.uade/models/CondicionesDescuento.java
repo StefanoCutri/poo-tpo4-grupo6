@@ -4,14 +4,8 @@ import org.uade.enums.TipoTarjeta;
 
 import java.util.*;
 
-/**
- * 
- */
 public class CondicionesDescuento {
 
-    /**
-     * Default constructor
-     */
     public CondicionesDescuento(Date fchDesde, Date fchHasta, int diaSemana, float porcentaje, TipoTarjeta tipoTarjeta, ArrayList<TarjetaDescuento> TarjetaDescuento ) {
     	
     	this.diaSemana = diaSemana;
@@ -23,23 +17,14 @@ public class CondicionesDescuento {
     
     }
 
-    /**
-     * 
-     */
     private Date fchDesde;
 
-    /**
-     * 
-     */
     private Date fchHasta;
 
-    /**
-     * 
-     */
     private int diaSemana;
 
     public float getPorcentaje() {
-        return porcentaje;
+        return this.porcentaje;
     }
 
     public void setPorcentaje(float porcentaje) {
@@ -47,11 +32,11 @@ public class CondicionesDescuento {
     }
 
     public Date getFchDesde() {
-        return fchDesde;
+        return this.fchDesde;
     }
 
     public Date getFchHasta() {
-        return fchHasta;
+        return this.fchHasta;
     }
 
     public int getDiaSemana() {
@@ -62,14 +47,8 @@ public class CondicionesDescuento {
         return tipoTarjeta;
     }
 
-    /**
-     * 
-     */
     private float porcentaje;
 
-    /**
-     * 
-     */
     private TipoTarjeta tipoTarjeta;
 
     public List<TarjetaDescuento> getTarjetaDescuento() {
