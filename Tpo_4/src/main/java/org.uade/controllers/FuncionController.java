@@ -1,5 +1,6 @@
 package org.uade.controllers;
 
+import org.uade.dtos.FuncionDTO;
 import org.uade.enums.TipoGenero;
 import org.uade.enums.TipoProyeccion;
 import org.uade.models.Entrada;
