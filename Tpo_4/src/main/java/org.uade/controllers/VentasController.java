@@ -169,4 +169,19 @@ public class VentasController {
         return new FuncionDTO(funcion);
     }
 
+
+    public void simularVentas() {
+        List<Funcion> funciones = FuncionController.getInstance().getFunciones();
+        System.out.println("🧪 Funciones disponibles para simular: " + funciones.size());
+
+        for (Funcion f : funciones) {
+            Venta venta = new Venta(1, new Date(), null, null);
+            venta.setFuncion(f);
+            ventas.add(venta);
+        }
+
+        System.out.println("🧪 Ventas simuladas: " + ventas.size());
+    }
+
+
 }

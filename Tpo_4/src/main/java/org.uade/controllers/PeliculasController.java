@@ -11,6 +11,7 @@ public class PeliculasController {
     private static PeliculasController instancia = null;
 
     private List<Pelicula> peliculas;
+    private int contadorID = 1;
 
     private PeliculasController() {
         peliculas = new ArrayList<>();
@@ -46,6 +47,10 @@ public class PeliculasController {
 
     public List<Pelicula> getTodasLasPeliculas() {
         return peliculas;
+    }
+
+    public int generarNuevoID() {
+        return contadorID++;
     }
 
 }

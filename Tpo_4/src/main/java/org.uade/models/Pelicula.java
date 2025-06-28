@@ -34,8 +34,7 @@ public class Pelicula {
     private CondicionesDescuento condicionesDescuento;
 
     public int getPeliculaID() {
-        // TODO implement here
-        return 0;
+        return this.getPeliculaID();
     }
 
     public TipoGenero getGenero() {
