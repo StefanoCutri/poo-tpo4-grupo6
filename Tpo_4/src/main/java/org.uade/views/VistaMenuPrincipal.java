@@ -19,9 +19,15 @@ public class VistaMenuPrincipal extends JFrame {
 
             VistaRegistrarFuncion panelRegistrarFuncion = new VistaRegistrarFuncion();
             VistaRegistrarPelicula panelRegistrarPelicula = new VistaRegistrarPelicula();
+            VistaConsultarPeliculas panelConsultarPeliculas = new VistaConsultarPeliculas();
+            JPanel panelGenerarReporte = new VistaGenerarReporte();
+
 
             tabbedPane.addTab("Registrar Función", panelRegistrarFuncion);
             tabbedPane.addTab("Registrar Pelicula", panelRegistrarPelicula);
+            tabbedPane.addTab("Consultar Películas", panelConsultarPeliculas);
+            tabbedPane.addTab("Reporte de Recaudación", panelGenerarReporte);
+
 
             tabbedPane.addChangeListener(e -> {
                 int index = tabbedPane.getSelectedIndex();

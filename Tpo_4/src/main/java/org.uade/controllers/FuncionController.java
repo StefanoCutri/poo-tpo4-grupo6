@@ -3,10 +3,7 @@ package org.uade.controllers;
 import org.uade.dtos.FuncionDTO;
 import org.uade.enums.TipoGenero;
 import org.uade.enums.TipoProyeccion;
-import org.uade.models.Entrada;
-import org.uade.models.Funcion;
-import org.uade.models.Pelicula;
-import org.uade.models.Sala;
+import org.uade.models.*;
 
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -19,6 +16,8 @@ public class FuncionController {
     private List<Funcion> funciones;
 
     private static FuncionController instancia;
+
+    PeliculasController peliculasController = PeliculasController.getInstance();
 
     private FuncionController() {
         funciones = new ArrayList<>();
@@ -229,5 +228,37 @@ public class FuncionController {
             }
         }
         return maxID + 1;
+    }
+
+    // obtener recaudacion por pelicula
+    public List<String> obtenerRecaudacionesPorPelicula() {
+        List<String> resultado = new ArrayList<>();
+        List<Pelicula> peliculas = PeliculasController.getInstance().getTodasLasPeliculas();
+
+        for (Pelicula pelicula : peliculas) {
+            float totalRecaudado = 0.0f;
+
+            for (Funcion funcion : funciones) {
+                if (funcion.getPelicula().equals(pelicula)) {
+                    for (Venta venta : VentasController.getInstances().getVentas()) {
+                        if (venta.getFuncion() != null && venta.getFuncion().equals(funcion)) {
+                            totalRecaudado += venta.calcularMontoDeLaVentaPorFuncionCombos();
+                        }
+                    }
+                }
+            }
+
+            resultado.add(pelicula.getNombrePelicula() + " - Recaudación: $" + totalRecaudado);
+        }
+
+        return resultado;
+    }
+
+    public List<Funcion> getFunciones() {
+        return funciones;
+    }
+
+    public PeliculasController getPeliculasController() {
+        return this.peliculasController;
     }
 }

@@ -19,6 +19,8 @@ public class Pelicula {
 
     }
 
+    private int peliculaID;
+
     private TipoGenero genero;
 
     private String nombrePelicula;
@@ -34,16 +36,20 @@ public class Pelicula {
     private CondicionesDescuento condicionesDescuento;
 
     public int getPeliculaID() {
-        return this.getPeliculaID();
+        return this.peliculaID;
     }
 
+    public void setPeliculaID(int peliculaID) {
+        this.peliculaID = peliculaID;
+    }
 
     public TipoGenero getGenero() {
         return genero;
     }
 
     public void setGeneroID(TipoGenero generoID) {
-        this.genero = genero;
+
+        this.genero = generoID;
     }
 
     public CondicionesDescuento getCondicionesDescuento() {
@@ -52,10 +58,31 @@ public class Pelicula {
 
     @Override
     public String toString() {
-        return this.getNombrePelicula(); // o lo que quieras mostrar en el combo
+        return "ID: " + getPeliculaID() + " | Título: " + getNombrePelicula() + " | Duración: " + getDuracionEnMinutos() + " min";
     }
 
     public String getNombrePelicula() {
         return nombrePelicula;
+    }
+
+    public String getDirector() {
+        return director;
+    }
+
+    public int getDuracionEnMinutos() {
+        return duracionEnMinutos;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        Pelicula pelicula = (Pelicula) obj;
+        return Objects.equals(nombrePelicula, pelicula.nombrePelicula); // o compará por ID si lo tenés
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombrePelicula);
     }
 }

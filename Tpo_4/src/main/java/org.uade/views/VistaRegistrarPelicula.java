@@ -73,7 +73,8 @@ public class VistaRegistrarPelicula extends JPanel {
             int duracion = Integer.parseInt(duracionStr);
             List<String> actores = List.of(actoresStr.split("\\s*,\\s*")); // quita espacios alrededor de las comas
 
-            Pelicula nuevaPelicula = new Pelicula(genero, director, duracion, nombre, tipo, actores, null); // null si no manejás condiciones de descuento por ahora
+            Pelicula nuevaPelicula = new Pelicula(genero, director, duracion, nombre, tipo, actores, null);
+            nuevaPelicula.setPeliculaID(peliculasController.generarNuevoID());
 
             peliculasController.registrarPelicula(nuevaPelicula);
 
