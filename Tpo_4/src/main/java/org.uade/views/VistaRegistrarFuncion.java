@@ -31,6 +31,7 @@ public class VistaRegistrarFuncion extends JPanel {
 
     public VistaRegistrarFuncion() {
         inicializarComponentes();
+        cargarPeliculasEnCombo();
     }
 
     private void inicializarComponentes() {
@@ -94,7 +95,7 @@ public class VistaRegistrarFuncion extends JPanel {
         actualizarPeliculas(); // inicializar películas al cargar
     }
 
-    private void actualizarPeliculas() {
+    public void actualizarPeliculas() {
         peliculaComboBox.removeAllItems();
         TipoGenero genero = (TipoGenero) generoComboBox.getSelectedItem();
         if (genero != null) {
@@ -138,6 +139,14 @@ public class VistaRegistrarFuncion extends JPanel {
 
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "El ID de sala debe ser un número.");
+        }
+    }
+
+    private void cargarPeliculasEnCombo() {
+        peliculaComboBox.removeAllItems(); // Limpiar primero
+        List<Pelicula> peliculas = PeliculasController.getInstance().getTodasLasPeliculas();
+        for (Pelicula pelicula : peliculas) {
+            peliculaComboBox.addItem(pelicula); // Asumiendo que Pelicula tiene toString() overrideado
         }
     }
 

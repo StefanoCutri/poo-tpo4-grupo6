@@ -37,6 +37,7 @@ public class Pelicula {
         return this.getPeliculaID();
     }
 
+
     public TipoGenero getGenero() {
         return genero;
     }
@@ -49,4 +50,12 @@ public class Pelicula {
         return condicionesDescuento;
     }
 
+    @Override
+    public String toString() {
+        return this.getNombrePelicula(); // o lo que quieras mostrar en el combo
+    }
+
+    public String getNombrePelicula() {
+        return nombrePelicula;
+    }
 }

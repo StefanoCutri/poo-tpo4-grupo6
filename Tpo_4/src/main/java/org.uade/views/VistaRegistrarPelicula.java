@@ -77,6 +77,11 @@ public class VistaRegistrarPelicula extends JPanel {
 
             peliculasController.registrarPelicula(nuevaPelicula);
 
+            System.out.println("Películas registradas:");
+            for (Pelicula p : peliculasController.getTodasLasPeliculas()) {
+                System.out.println(p);
+            }
+
             JOptionPane.showMessageDialog(this, "Película registrada con éxito.");
             limpiarCampos();
 
