@@ -34,23 +34,31 @@ public class Venta {
     private TarjetaDescuento tarjetaDescuento;
 
     public int getFuncionID() {
-        // TODO implement here
-        return 0;
+        return funcion != null ? funcion.getFuncionID() : -1;
     }
 
+
     public float getTotal() {
-        // TODO implement here
-        return 0.0f;
+        float total = 0f;
+
+        if (funcion != null) {
+            total += funcion.calcularMontoPorEntradaDeLaPelicula();
+        }
+
+        if (combos != null) {
+            for (Combo combo : combos) {
+                total += combo.getPrecio();
+            }
+        }
+
+        return total;
     }
 
     public int getPeliculaID() {
-        // TODO implement here
-        return 0;
+        return funcion != null && funcion.getPelicula() != null ? funcion.getPelicula().getPeliculaID() : -1;
     }
-
     public TipoTarjeta getTipoTarjeta() {
-        // TODO implement here
-        return null;
+        return tarjetaDescuento != null ? tarjetaDescuento.getTipoTarjeta() : null;
     }
 
     public List<Combo> getListaComboID() {
