@@ -19,7 +19,7 @@ public class PeliculasControllerTest {
     private Pelicula peliculaTerror;
 
     @BeforeAll
-    public void setup() {
+    public void setUp() {
         peliculasController = PeliculasController.getInstancia();
 
         peliculaDrama = new Pelicula(

@@ -15,7 +15,6 @@ import org.uade.models.Venta;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class VentasControllerTest {

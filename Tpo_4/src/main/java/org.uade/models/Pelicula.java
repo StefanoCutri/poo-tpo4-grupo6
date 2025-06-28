@@ -65,6 +65,10 @@ public class Pelicula {
         return nombrePelicula;
     }
 
+    public void setCondicionesDescuento(CondicionesDescuento condicionesDescuento) {
+        this.condicionesDescuento = condicionesDescuento;
+    }
+
     public String getDirector() {
         return director;
     }
