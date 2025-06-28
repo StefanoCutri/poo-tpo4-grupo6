@@ -27,6 +27,8 @@ public class Pelicula {
 
     private String director;
 
+    private int peliculaID;
+
     private List<String> actores;
 
     private TipoProyeccion tipo;
@@ -34,7 +36,11 @@ public class Pelicula {
     private CondicionesDescuento condicionesDescuento;
 
     public int getPeliculaID() {
-        return this.getPeliculaID();
+        return this.peliculaID;
+    }
+
+    public String getNombrePelicula() {
+        return nombrePelicula;
     }
 
     public TipoGenero getGenero() {
