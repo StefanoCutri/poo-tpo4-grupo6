@@ -39,7 +39,7 @@ public class VistaConsultarPeliculas extends JPanel {
     }
 
     private void consultarPeliculas(ActionEvent e) {
-        resultadoTextArea.setText(""); // Limpiar
+        resultadoTextArea.setText("");
 
         TipoGenero generoSeleccionado = (TipoGenero) generoComboBox.getSelectedItem();
         if (generoSeleccionado != null) {

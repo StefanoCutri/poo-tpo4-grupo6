@@ -25,6 +25,7 @@ public class VistaRegistrarPelicula extends JPanel {
     public VistaRegistrarPelicula() {
         setLayout(new GridLayout(8, 2, 10, 10));
 
+        // Campos
         nombreField = new JTextField();
         directorField = new JTextField();
         duracionField = new JTextField();
@@ -32,6 +33,7 @@ public class VistaRegistrarPelicula extends JPanel {
         proyeccionComboBox = new JComboBox<>(TipoProyeccion.values());
         actoresField = new JTextField();
 
+        // Botón
         JButton registrarButton = new JButton("Registrar Película");
         registrarButton.addActionListener(this::registrarPelicula);
 
@@ -48,6 +50,7 @@ public class VistaRegistrarPelicula extends JPanel {
         add(new JLabel("Actores (separados por coma):"));
         add(actoresField);
 
+        // Espacio vacío + botón
         add(new JLabel());
         add(registrarButton);
     }

@@ -4,6 +4,7 @@ import org.uade.dtos.VentaDto;
 import org.uade.enums.TipoGenero;
 import org.uade.enums.TipoTarjeta;
 import org.uade.models.Combo;
+import org.uade.models.Entrada;
 import org.uade.models.Funcion;
 import org.uade.models.Venta;
 
@@ -172,16 +173,24 @@ public class VentasController {
 
     public void simularVentas() {
         List<Funcion> funciones = FuncionController.getInstance().getFunciones();
-        System.out.println("🧪 Funciones disponibles para simular: " + funciones.size());
 
         for (Funcion f : funciones) {
-            Venta venta = new Venta(1, new Date(), null, null);
-            venta.setFuncion(f);
+            // Generar entradas simuladas
+            List<Entrada> entradasSimuladas = new ArrayList<>();
+            entradasSimuladas.add(new Entrada(1, f, f.getPrecioEntrada()));
+            entradasSimuladas.add(new Entrada(2, f, f.getPrecioEntrada())); // asiento 2
+            for (int i = 1; i <= 5; i++) {
+                entradasSimuladas.add(new Entrada(i, f, f.getPrecioEntrada()));
+            }
+            f.setEntradas(entradasSimuladas); // Asignarlas a la función
+
+            // Crear venta simulada con entradas
+            Venta venta = new Venta(1, new Date(), null, f);
             ventas.add(venta);
         }
-
-        System.out.println("🧪 Ventas simuladas: " + ventas.size());
     }
+
+
 
 
 }
