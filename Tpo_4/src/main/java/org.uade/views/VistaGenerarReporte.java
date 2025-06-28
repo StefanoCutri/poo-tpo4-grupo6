@@ -16,23 +16,26 @@ public class VistaGenerarReporte extends JPanel {
     public VistaGenerarReporte() {
         setLayout(new GridLayout(3, 1, 10, 10));
 
-        // Área de resultados
-        resultadoArea = new JTextArea(15, 40);
+        resultadoArea = new JTextArea(10, 40);
         resultadoArea.setEditable(false);
         resultadoArea.setText("Resultado\nHacé clic en el botón para generar el reporte.");
         JScrollPane scrollPane = new JScrollPane(resultadoArea);
 
-        // Botón
         generarReporteButton = new JButton("Generar Reporte de Recaudación");
+        generarReporteButton.setPreferredSize(new Dimension(250, 30));
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
+        buttonPanel.add(generarReporteButton);
+
         generarReporteButton.addActionListener(e -> generarReporte());
 
-        // Agregamos componentes directamente al panel principal (como en tus otras vistas)
-        add(scrollPane, BorderLayout.CENTER);
-        add(generarReporteButton, BorderLayout.SOUTH);
+        add(scrollPane);
+        add(Box.createVerticalStrut(10)); // espacio vacío
+        add(buttonPanel);
 
-        // Simular ventas al iniciar
+        // Simular ventas
         VentasController.getInstances().simularVentas();
-        System.out.println("⚙️ VistaGenerarReporte creada y ventas simuladas.");
     }
 
     private void generarReporte() {
@@ -42,9 +45,9 @@ public class VistaGenerarReporte extends JPanel {
 
         if (recaudaciones.isEmpty()) {
             resultadoArea.setText("No hay recaudaciones disponibles.");
-            System.out.println("🟥 Lista vacía de recaudaciones.");
+            System.out.println("Lista vacía de recaudaciones.");
         } else {
-            System.out.println("📊 Recaudaciones encontradas:");
+            System.out.println("Recaudaciones encontradas:");
             for (String r : recaudaciones) {
                 resultadoArea.append(r + "\n");
                 System.out.println(r);

@@ -118,14 +118,12 @@ public class VistaRegistrarFuncion extends JPanel {
 
         try {
             int salaID = Integer.parseInt(salaTexto);
-            // Simulamos una sala cualquiera (podés reemplazar esto por una sala real si tenés lógica para eso)
-            Sala sala = new Sala(salaID, "Sala A", 50); // salaID, sucursalID, asientos
+            // Simulamos una sala cualquiera
+            Sala sala = new Sala(salaID, "Sala A", 50);
 
-            // Extraer horario como texto (por ejemplo "20:00")
             SimpleDateFormat sdfHora = new SimpleDateFormat("HH:mm");
             String horario = sdfHora.format(fechaHora);
 
-            // Generar ID autoincremental
             int nuevoID = funcionController.obtenerProximoID();
 
             Funcion nuevaFuncion = new Funcion(fechaHora, nuevoID, horario, new ArrayList<>(), sala, pelicula);
@@ -143,10 +141,10 @@ public class VistaRegistrarFuncion extends JPanel {
     }
 
     private void cargarPeliculasEnCombo() {
-        peliculaComboBox.removeAllItems(); // Limpiar primero
+        peliculaComboBox.removeAllItems();
         List<Pelicula> peliculas = PeliculasController.getInstance().getTodasLasPeliculas();
         for (Pelicula pelicula : peliculas) {
-            peliculaComboBox.addItem(pelicula); // Asumiendo que Pelicula tiene toString() overrideado
+            peliculaComboBox.addItem(pelicula);
         }
     }
 

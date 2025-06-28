@@ -241,7 +241,7 @@ public class FuncionController {
             for (Funcion funcion : funciones) {
                 if (funcion.getPelicula().equals(pelicula)) {
                     for (Venta venta : VentasController.getInstances().getVentas()) {
-                        if (venta.getFuncion() != null && venta.getFuncion().equals(funcion)) {
+                        if (funcion != null && funcion.getPelicula().getPeliculaID() == pelicula.getPeliculaID()) {
                             totalRecaudado += venta.calcularMontoDeLaVentaPorFuncionCombos();
                         }
                     }

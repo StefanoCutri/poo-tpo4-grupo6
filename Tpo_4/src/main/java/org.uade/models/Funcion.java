@@ -28,6 +28,8 @@ public class Funcion {
     private Date fecha;
     private int funcionID;
 
+    private float precioEntrada = 3600;
+
 
     public Pelicula getPelicula() {
         return pelicula;
@@ -65,11 +67,31 @@ public class Funcion {
 
     public float calcularMontoPorEntradaDeLaPelicula(){
         float total = 0.0f;
-        for (Entrada entrada:getEntradas()) {
-            total = total+ (entrada.getPrecio() -
-                    (entrada.getPrecio()*this.pelicula.getCondicionesDescuento().getDescuento()));
+        float descuento = 0f;
+
+        if (pelicula != null && pelicula.getCondicionesDescuento() != null) {
+            descuento = pelicula.getCondicionesDescuento().getDescuento();
         }
+
+        if (entradas != null) {
+            for (Entrada entrada : entradas) {
+                total += entrada.getPrecio() - (entrada.getPrecio() * descuento);
+            }
+        }
+
         return total;
+    }
+
+    public float getPrecioEntrada() {
+        return precioEntrada;
+    }
+
+    public void setPrecioEntrada(float precioEntrada) {
+        this.precioEntrada = precioEntrada;
+    }
+
+    public void setEntradas(List<Entrada> entradas) {
+        this.entradas = entradas;
     }
 
 }

@@ -56,6 +56,10 @@ public class Pelicula {
         return condicionesDescuento;
     }
 
+    public void setCondicionesDescuento(CondicionesDescuento condicionesDescuento) {
+        this.condicionesDescuento = condicionesDescuento;
+    }
+
     @Override
     public String toString() {
         return "ID: " + getPeliculaID() + " | Título: " + getNombrePelicula() + " | Duración: " + getDuracionEnMinutos() + " min";

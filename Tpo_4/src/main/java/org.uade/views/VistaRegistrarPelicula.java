@@ -37,7 +37,7 @@ public class VistaRegistrarPelicula extends JPanel {
         JButton registrarButton = new JButton("Registrar Película");
         registrarButton.addActionListener(this::registrarPelicula);
 
-        // Agregado de componentes
+        // componentes
         add(new JLabel("Nombre:"));
         add(nombreField);
         add(new JLabel("Director:"));
@@ -71,7 +71,7 @@ public class VistaRegistrarPelicula extends JPanel {
 
         try {
             int duracion = Integer.parseInt(duracionStr);
-            List<String> actores = List.of(actoresStr.split("\\s*,\\s*")); // quita espacios alrededor de las comas
+            List<String> actores = List.of(actoresStr.split("\\s*,\\s*"));
 
             Pelicula nuevaPelicula = new Pelicula(genero, director, duracion, nombre, tipo, actores, null);
             nuevaPelicula.setPeliculaID(peliculasController.generarNuevoID());

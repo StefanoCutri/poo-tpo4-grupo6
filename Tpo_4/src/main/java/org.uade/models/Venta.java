@@ -67,7 +67,21 @@ public class Venta {
     }
 
 
-    public float calcularMontoDeLaVentaPorFuncionCombos(){
-        return funcion.calcularMontoPorEntradaDeLaPelicula()+calcularMontoPorComboDeVenta();
+    public float calcularMontoDeLaVentaPorFuncionCombos() {
+        float total = 0f;
+
+        if (funcion != null) {
+
+            total += funcion.calcularMontoPorEntradaDeLaPelicula();
+        }
+
+        if (combos != null) {
+            for (Combo combo : combos) {
+                total += combo.getPrecio();
+            }
+        }
+
+        return total;
     }
+
 }
